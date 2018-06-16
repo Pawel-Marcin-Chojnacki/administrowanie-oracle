@@ -3,10 +3,10 @@ nCount NUMBER;
 v_sql LONG;
 
 begin
-SELECT count(*) into nCount FROM dba_tables where table_name = 'EMPLOYEE';
+SELECT count(*) into nCount FROM dba_tables where table_name = 'LOGI';
 IF(nCount <= 0)
 THEN
-v_sql:='CREATE TABLE logi(
+v_sql:='CREATE TABLE LOGI(
   id number(4) GENERATED ALWAYS as IDENTITY(START with 1 INCREMENT by 1),
   tabela varchar2(50),
   uzytkownik varchar2(30),

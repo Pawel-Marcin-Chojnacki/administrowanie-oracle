@@ -1,3 +1,5 @@
+-- Procedure to raise salary of an given department by a selected percentage.
+-- Operations are performed on standard HR scheme in oracle database.
 create or replace procedure BonusSwiateczny ( oddzial in INT, procent in INT)
 is
 cSalary number;

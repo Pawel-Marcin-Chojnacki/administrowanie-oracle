@@ -12,18 +12,18 @@ begin
    select systimestamp into v_currentdate from dual;
 
 if deleting then
-    insert into logi (id, tabela, uzytkownik, data, operacja) 
-    values (1, 'jobs', v_username, v_currentdate, 'delete');
+    insert into logi (tabela, uzytkownik, data, operacja) 
+    values ('jobs', v_username, v_currentdate, 'delete');
 end if;
 
 if inserting then
-    insert into logi (id, tabela, uzytkownik, data, operacja) 
-    values (1, 'jobs', v_username, v_currentdate, 'insert');
+    insert into logi (tabela, uzytkownik, data, operacja) 
+    values ('jobs', v_username, v_currentdate, 'insert');
 end if;
 
 if updating then
-    insert into logi (id, tabela, uzytkownik, data, operacja) 
-    values (1, 'jobs', v_username, v_currentdate, 'update');
+    insert into logi (tabela, uzytkownik, data, operacja) 
+    values ('jobs', v_username, v_currentdate, 'update');
 end if;
 
 -- wspólny kod

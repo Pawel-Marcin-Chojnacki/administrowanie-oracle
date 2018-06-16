@@ -4,18 +4,27 @@ create or replace trigger logger
 after insert or update or delete 
 on hr.jobs
 declare 
-— deklaracje zmiennych
+    v_username varchar2(10);
+    v_currentdate date;
 
 begin
-if deleting then
+   SELECT user INTO v_username FROM dual;
+   select systimestamp into v_currentdate from dual;
 
+if deleting then
+    insert into logi (id, tabela, uzytkownik, data, operacja) 
+    values (1, 'jobs', v_username, v_currentdate, 'delete');
 end if;
 
 if inserting then
+    insert into logi (id, tabela, uzytkownik, data, operacja) 
+    values (1, 'jobs', v_username, v_currentdate, 'insert');
 end if;
 
 if updating then
+    insert into logi (id, tabela, uzytkownik, data, operacja) 
+    values (1, 'jobs', v_username, v_currentdate, 'update');
 end if;
 
-—wspólny kod
+-- wspólny kod
 end;

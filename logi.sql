@@ -1,5 +1,5 @@
 CREATE TABLE logi(
-  id number(4),
+  id number(4) GENERATED ALWAYS as IDENTITY(START with 1 INCREMENT by 1),
   tabela varchar2(50),
   uzytkownik varchar2(30),
   data date,
